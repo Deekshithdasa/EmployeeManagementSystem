@@ -1,0 +1,64 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-header">
+      <h1>Employee Management System</h1>
+      <p class="subtitle">HR & Administration Portal</p>
+    </div>
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Login Form -->
+    <form (ngSubmit)="onLogin()" class="login-form">
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input 
+          type="email" 
+          id="email"
+          [(ngModel)]="loginModel.email" 
+          name="email"
+          placeholder="Enter your email"
+          class="form-input"
+          [disabled]="isLoading"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input 
+          type="password" 
+          id="password"
+          [(ngModel)]="loginModel.password" 
+          name="password"
+          placeholder="Enter your password"
+          class="form-input"
+          [disabled]="isLoading"
+          required
+        />
+      </div>
+
+      <button 
+        type="submit" 
+        class="login-btn"
+        [disabled]="isLoading"
+      >
+        {{ isLoading ? loadingMessage : 'Login' }}
+      </button>
+    </form>
+
+    <!-- Demo credentials removed: users must enter HR/Admin credentials manually -->
+
+    <!-- Info Message -->
+    <div class="info-message">
+      <p>⚠️ This application is restricted to HR and Administration personnel only.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+/* Employee view layout */
+.employee-view .search-card { min-height: 150px; }
+.employee-view .search-card h5 { margin-bottom: 0.25rem; }
+.employee-view .card { border-radius: 6px; }
+.employee-view .card .card-body { font-size: 0.95rem; }
+
+@media (max-width: 767px) {
+	.employee-view .col-md-4, .employee-view .col-md-8 { width: 100%; }
+	.employee-view .search-card { margin-bottom: 1rem; }
+}

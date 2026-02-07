@@ -1,0 +1,58 @@
+
+<nav class="navbar navbar-dark bg-dark px-4" *ngIf="isLoggedIn">
+  <div class="navbar-content">
+    <span class="navbar-brand mb-0 h4 text-white">
+      EmployeeManagementSystem
+    </span>
+    <div class="user-info">
+      <span class="user-name">{{ currentUser?.name || 'User' }}</span>
+      <span class="user-role">({{ currentUser?.role }})</span>
+      <button (click)="logout()" class="btn btn-danger btn-sm">Logout</button>
+    </div>
+  </div>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg glowing-navbar px-4" *ngIf="isLoggedIn">
+  <ul class="navbar-nav">
+
+    <li class="nav-item me-3">
+      <a class="nav-link"
+         routerLink="/add"
+         routerLinkActive="active fw-bold">
+        Add Employee
+      </a>
+    </li>
+
+    <li class="nav-item me-3">
+      <a class="nav-link"
+         routerLink="/list"
+         routerLinkActive="active fw-bold">
+        Employee List
+      </a>
+    </li>
+
+    
+    <li class="nav-item me-3">
+      <a class="nav-link"
+         routerLink="/view"
+         routerLinkActive="active fw-bold">
+        View Employee
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link"
+         routerLink="/update"
+         routerLinkActive="active fw-bold">
+        Update Employee
+      </a>
+    </li>
+
+  </ul>
+</nav>
+
+
+<div [ngClass]="isLoggedIn ? 'container mt-4' : 'full-page'">
+  <router-outlet></router-outlet>
+</div>

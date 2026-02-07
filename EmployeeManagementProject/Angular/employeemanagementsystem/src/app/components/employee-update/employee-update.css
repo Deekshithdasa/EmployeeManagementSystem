@@ -1,0 +1,57 @@
+/* Employee update layout */
+.employee-update .search-card {
+  min-height: 150px;
+}
+
+.employee-update .search-card h5 {
+  margin-bottom: 0.25rem;
+}
+
+.employee-update .card {
+  border-radius: 6px;
+}
+
+.employee-update .card .card-body {
+  font-size: 0.95rem;
+}
+
+.employee-update .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.employee-update .btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #000;
+}
+
+.employee-update .btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+}
+
+.employee-update .gap-2 {
+  gap: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .employee-update .col-md-4,
+  .employee-update .col-md-8 {
+    width: 100%;
+  }
+
+  .employee-update .search-card {
+    margin-bottom: 1rem;
+  }
+
+  .employee-update .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .employee-update .btn-warning {
+    margin-top: 0.5rem;
+  }
+}

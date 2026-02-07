@@ -1,0 +1,117 @@
+# Employee Management System - Full Stack Application
+
+## Project Overview
+
+This is a complete full-stack Employee Management System with:
+- **Frontend:** Angular 21 (TypeScript)
+- **Backend:** Spring Boot 3.2.1 (Java 17)
+- **Database:** MySQL 8.0
+- **Authentication:** Role-based login (HR & Administration)
+
+### Key Features
+✅ User authentication with role-based access control  
+✅ Employee CRUD operations (Create, Read, Update, Delete)  
+✅ Frontend-to-Backend API integration  
+✅ MySQL database persistence  
+✅ Responsive UI with validation  
+✅ RESTful API endpoints  
+
+## Quick Start (Recommended)
+
+### 1: Automated Setup (Easiest)
+
+```powershell
+# Open PowerShell as Administrator
+
+# Run the setup script
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+cd "C:\EmployeeManagementProject"
+.\setup.ps1
+```
+
+This will automatically:
+- ✅ Install Java 17
+- ✅ Install MySQL
+- ✅ Create database
+- ✅ Build backend
+- ✅ Verify everything
+
+## Running the Application
+
+### Step 1: Start MySQL
+```powershell
+# MySQL should auto-start as a service
+# If not, run:
+Get-Service MySQL80 | Start-Service
+```
+
+### Step 2: Start Backend
+```powershell
+cd "C:\EmployeeManagementProject\emp_backend"
+.\mvnw spring-boot:run
+```
+
+You should see:
+```
+Started EmpBackendApplication in 5.123 seconds
+```
+
+### Step 3: Start Frontend
+```powershell
+cd "C:\EmployeeManagementProject\Angular\employeemanagementsystem"
+npm start
+```
+
+Frontend will auto-open at http://localhost:4200
+
+### Step 4: Login and Test
+1. **Frontend:** http://localhost:4200
+2. **Login Credentials:**
+   - Email: `hr@company.com`
+   - Password: `password123`
+   - OR
+   - Email: `admin@company.com`
+   - Password: `admin123`
+
+---
+
+## API Endpoints
+
+### Base URL: `http://localhost:8080/api`
+
+#### Authentication
+```
+POST /auth/login(Credentials for logging in website)
+
+  Body: {"email":"hr@company.com","password":"HRPass@2026!"}
+  Response: {"id":1,"email":"...","role":"HR","name":"...","token":"..."}
+
+Body: {"email":"admin@company.com","password":"AdminPass@2026!"}
+  Response: {"id":1,"email":"...","role":"HR","name":"...","token":"..."}
+
+POST /auth/register
+  Body: {"email":"user@example.com","password":"password"}
+```
+
+#### Employee Management
+```
+GET    /employees              → Get all employees
+POST   /employees              → Create new employee
+GET    /employees/{id}         → Get employee by ID
+PUT    /employees/{id}         → Update employee
+DELETE /employees/{id}         → Delete employee
+```
+
+============================================
+ACCESS THE APPLICATION
+============================================
+
+Open browser: http://localhost:4200
+
+Login Credentials:
+------------------
+| Username             | Password        | Role   |
+|----------------------|-----------------|--------|
+| hr@company.com       | HRPass@2026!    | HR     |
+| admin@company.com    | AdminPass@2026! | Admin  |
+

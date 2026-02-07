@@ -1,0 +1,103 @@
+.app-title {
+  font-family: 'Segoe UI', 'Poppins', 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.menu-font {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.glowing-navbar {
+  background-color: #111827; /* dark slate */
+}
+
+.glowing-navbar .nav-link {
+  color: #e5e7eb !important;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.glowing-navbar .nav-link:hover {
+  background-color: #06122b;
+  color: #ffffff !important;
+  box-shadow: 0 0 10px #2563eb,
+              0 0 20px #2563eb;
+}
+
+.glowing-navbar .nav-link.active {
+  background-color: #384056;
+  box-shadow: 0 0 12px #1d4ed8;
+}
+
+/* Navbar content styling */
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.user-role {
+  color: #b0b8c1;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.user-info .btn-danger {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.user-info .btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(220, 38, 38, 0.4);
+}
+
+/* Full page container for login page */
+.full-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .user-info {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .user-info .btn-danger {
+    width: 100%;
+  }
+}

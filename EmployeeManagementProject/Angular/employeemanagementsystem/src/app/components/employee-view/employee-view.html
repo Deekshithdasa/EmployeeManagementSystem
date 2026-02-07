@@ -1,0 +1,102 @@
+<div class="employee-view container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm search-card">
+        <h5>Find Employee</h5>
+        <p class="text-muted small">Enter name or email ID</p>
+        <div class="input-group mb-2">
+          <input #q type="text" class="form-control" placeholder="Name or email" (keyup.enter)="search(q.value)">
+          <button type="button" class="btn btn-primary" (click)="search(q.value)">Search</button>
+        </div>
+
+        <hr class="my-2">
+
+        <h5>Find by Department</h5>
+        <p class="text-muted small">Enter department name</p>
+        <div class="input-group mb-2">
+          <input #dept type="text" class="form-control" placeholder="Department name" (keyup.enter)="searchByDepartment(dept.value)">
+          <button type="button" class="btn btn-info" (click)="searchByDepartment(dept.value)">Search</button>
+        </div>
+
+        <div *ngIf="notFound && searchMode === 'employee'" class="alert alert-warning mt-2 mb-2">No Employee found with this email id or name</div>
+        <div *ngIf="notFound && searchMode === 'department'" class="alert alert-warning mt-2 mb-2">No employees found in this department</div>
+
+        <button type="button" class="btn btn-sm btn-info w-100" (click)="viewAllEmployees()">View All Employees</button>
+        <div *ngIf="allEmployees.length" class="mt-2 small">
+          <p class="mb-1"><b>Available Employees:</b></p>
+          <div class="bg-light p-2 rounded" style="max-height: 150px; overflow-y: auto;">
+            <div *ngFor="let emp of allEmployees" class="text-muted">
+              {{ emp.id }} - {{ emp.name }} ({{ emp.email }})
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <!-- Single Employee View -->
+      <div *ngIf="employee && searchMode === 'employee'; else departmentView">
+        <div class="card shadow-lg">
+          <div class="card-header bg-dark text-white">Employee Details</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6"><b>Name:</b> {{ employee.name }}</div>
+              <div class="col-sm-6"><b>Gender:</b> {{ employee.gender }}</div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-sm-6"><b>Email:</b> {{ employee.email }}</div>
+              <div class="col-sm-6"><b>Date Of Join:</b> {{ employee.dateOfJoin | date:'mediumDate' }}</div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-sm-6"><b>Department:</b> {{ employee.department }}</div>
+              <div class="col-sm-6"><b>Basic Salary:</b> {{ employee.salary || employee.basicSalary }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Department Employees View -->
+      <ng-template #departmentView>
+        <div *ngIf="employeesByDepartment.length > 0; else placeholder">
+          <div class="card shadow-lg">
+            <div class="card-header bg-info text-white">
+              Employees in {{ employeesByDepartment[0]?.department }} Department (Total: {{ employeesByDepartment.length }})
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                  <thead class="table-light">
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Gender</th>
+                      <th>Date Of Join</th>
+                      <th>Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let emp of employeesByDepartment">
+                      <td>{{ emp.id }}</td>
+                      <td>{{ emp.name }}</td>
+                      <td>{{ emp.email }}</td>
+                      <td>{{ emp.gender }}</td>
+                      <td>{{ emp.dateOfJoin | date:'mediumDate' }}</td>
+                      <td>{{ emp.salary || emp.basicSalary }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #placeholder>
+          <div class="card text-center p-4">
+            <div class="card-body text-muted">Enter name or email on the left to view employee details, or search by department to see all employees in that department.</div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</div>
