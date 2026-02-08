@@ -27,7 +27,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 	
-	//get all data
+	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/employees")
 	public List <Employee> getAllEmployees(){
@@ -36,7 +36,7 @@ public class EmployeeController {
 	
 	
 	
-	//create 
+	 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/employees")
 	public Employee createEmployee(@RequestBody Employee employee)
@@ -45,7 +45,7 @@ public class EmployeeController {
 	}
 	
 	
-	// get data by id 
+	 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/employees/{id}")
 	public ResponseEntity<Employee> getByID(@PathVariable Long id) {
@@ -55,7 +55,7 @@ public class EmployeeController {
 	}
 	
 	
-	//update data 
+	 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping ("/employees/{id}")
 	public ResponseEntity<Employee> updateEmployeeByID(@PathVariable Long id, @RequestBody Employee employeeDetails){

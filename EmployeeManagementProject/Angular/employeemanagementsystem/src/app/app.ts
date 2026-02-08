@@ -20,7 +20,7 @@ export class App implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Subscribe to current user changes
+    
     this.authService.currentUser$.subscribe(user => {
       this.currentUser = user;
       this.isLoggedIn = user !== null;

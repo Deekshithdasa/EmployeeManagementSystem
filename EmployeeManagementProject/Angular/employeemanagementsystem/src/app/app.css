@@ -12,7 +12,7 @@
 }
 
 .glowing-navbar {
-  background-color: #111827; /* dark slate */
+  background-color: #111827; 
 }
 
 .glowing-navbar .nav-link {
@@ -35,7 +35,7 @@
   box-shadow: 0 0 12px #1d4ed8;
 }
 
-/* Navbar content styling */
+
 .navbar-content {
   display: flex;
   justify-content: space-between;
@@ -74,7 +74,7 @@
   box-shadow: 0 5px 15px rgba(220, 38, 38, 0.4);
 }
 
-/* Full page container for login page */
+
 .full-page {
   display: flex;
   justify-content: center;
@@ -83,7 +83,7 @@
   padding: 20px;
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
   .navbar-content {
     flex-direction: column;

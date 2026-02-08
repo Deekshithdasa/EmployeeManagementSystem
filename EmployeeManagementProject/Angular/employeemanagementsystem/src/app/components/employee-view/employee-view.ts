@@ -115,7 +115,7 @@ export class EmployeeView implements OnInit {
           return;
         }
 
-        // Search by email (exact match)
+        
         let found = list.find((e: any) => {
           const empEmail = (e.email || '').toString().toLowerCase().trim();
           const matches = empEmail === q;
@@ -123,7 +123,7 @@ export class EmployeeView implements OnInit {
           return matches;
         });
 
-        // If not found by email, search by name (exact match)
+
         if (!found) {
           found = list.find((e: any) => {
             const empName = (e.name || '').toString().toLowerCase().trim();
@@ -133,7 +133,7 @@ export class EmployeeView implements OnInit {
           });
         }
 
-        // If still not found, try partial match
+        
         if (!found) {
           found = list.find((e: any) => {
             const empEmail = (e.email || '').toString().toLowerCase();
@@ -162,7 +162,7 @@ export class EmployeeView implements OnInit {
       },
       (error: any) => {
         console.error('Service error:', error);
-        // Try local storage fallback
+        
         try {
           const raw = localStorage.getItem('employees_local') || '[]';
           const list = JSON.parse(raw);

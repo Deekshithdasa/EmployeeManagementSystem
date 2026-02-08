@@ -34,7 +34,6 @@
     </div>
 
     <div class="col-md-8">
-      <!-- Single Employee View -->
       <div *ngIf="employee && searchMode === 'employee'; else departmentView">
         <div class="card shadow-lg">
           <div class="card-header bg-dark text-white">Employee Details</div>
@@ -55,7 +54,7 @@
         </div>
       </div>
 
-      <!-- Department Employees View -->
+      
       <ng-template #departmentView>
         <div *ngIf="employeesByDepartment.length > 0; else placeholder">
           <div class="card shadow-lg">

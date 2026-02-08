@@ -24,7 +24,7 @@ export class EmployeeList implements OnInit {
   }
 
   loadEmployees() {
-    // Then refresh from server (or merged server+local from service)
+    
     this.es.getAllEmployees().subscribe((data: any) => {
       this.employees = data;
       this.cdr.detectChanges();

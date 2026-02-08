@@ -15,12 +15,11 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 
-    // Simple in-memory user store for demo
-    // In production, use database with encrypted passwords
+    
     private static final Map<String, UserCredential> users = new HashMap<>();
 
     static {
-        // Initialize demo users
+        
         users.put("hr@company.com", new UserCredential("HRPass@2026!", "HR", "HR Manager"));
         users.put("admin@company.com", new UserCredential("AdminPass@2026!", "ADMIN", "Administrator"));
         users.put("hr@example.com", new UserCredential("hr123456", "HR", "HR Officer"));
@@ -33,24 +32,24 @@ public class AuthController {
             String email = loginRequest.getEmail();
             String password = loginRequest.getPassword();
 
-            // Validate input
+            
             if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
                 return ResponseEntity.badRequest().body(new ErrorResponse("Email and password are required"));
             }
 
-            // Check if user exists and password is correct (case-insensitive email)
+            
             UserCredential user = users.get(email.toLowerCase());
             
             if (user == null || !user.getPassword().equals(password)) {
                 return ResponseEntity.status(401).body(new ErrorResponse("Invalid email or password"));
             }
 
-            // Check if user has required role
+            
             if (!user.getRole().equals("HR") && !user.getRole().equals("ADMIN") && !user.getRole().equals("ADMINISTRATION")) {
                 return ResponseEntity.status(403).body(new ErrorResponse("You do not have access. Only HR and Administration can access this application."));
             }
 
-            // Create response
+            
             LoginResponse response = new LoginResponse();
             response.setId(1);
             response.setEmail(email.toLowerCase());
@@ -65,7 +64,7 @@ public class AuthController {
         }
     }
 
-    // Add new user (optional, for admin)
+    
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody LoginRequest loginRequest) {
         String email = loginRequest.getEmail();
@@ -79,7 +78,7 @@ public class AuthController {
             return ResponseEntity.badRequest().body(new ErrorResponse("User already exists"));
         }
 
-        // Add new user with EMPLOYEE role by default
+        
         users.put(email.toLowerCase(), new UserCredential(password, "EMPLOYEE", "Employee"));
 
         LoginResponse response = new LoginResponse();
@@ -92,7 +91,7 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
-    // Inner classes for request/response
+    
     public static class LoginRequest {
         private String email;
         private String password;
@@ -195,7 +194,7 @@ public class AuthController {
         }
     }
 
-    // User credential holder
+    
     private static class UserCredential {
         private String password;
         private String role;

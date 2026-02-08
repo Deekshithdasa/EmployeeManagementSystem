@@ -29,27 +29,27 @@ export class Login {
     this.errorMessage = '';
     this.successMessage = '';
 
-    // Validation
+    
     if (!this.loginModel.email || !this.loginModel.password) {
       this.errorMessage = 'Please enter both email and password';
       return;
     }
 
-    // Email validation - must be valid email format
+    
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(this.loginModel.email)) {
       this.errorMessage = 'Invalid email id';
       return;
     }
 
-    // Check if email is one of the allowed HR/Admin emails
+    
     const allowedEmails = ['hr@company.com', 'admin@company.com'];
     if (!allowedEmails.includes(this.loginModel.email.toLowerCase())) {
       this.errorMessage = 'Invalid email id';
       return;
     }
 
-    // Check if using demo credentials first (faster path)
+    
     if ((this.loginModel.email === 'hr@company.com' && this.loginModel.password === 'HRPass@2026!') ||
         (this.loginModel.email === 'admin@company.com' && this.loginModel.password === 'AdminPass@2026!')) {
       
@@ -57,19 +57,19 @@ export class Login {
       this.isLoading = true;
       this.loadingMessage = 'Verifying credentials...';
       
-      // Use demo login directly
+      
       setTimeout(() => {
         this.handleDemoLogin(role);
       }, 500);
       return;
     }
 
-    // For other credentials, show invalid password error
+    
     this.errorMessage = 'Invalid email or password';
     return;
   }
 
-  // Demo login for testing purposes
+  
   private handleDemoLogin(role: string): void {
     try {
       const user = {
@@ -79,18 +79,18 @@ export class Login {
         name: role === 'HR' ? 'HR Manager' : 'Administrator'
       };
       
-      // Update auth service with user data
+      
       localStorage.setItem('currentUser', JSON.stringify(user));
       localStorage.setItem('authToken', 'demo-token-' + Date.now());
       
-      // Manually update the auth service's current user
+      
       (this.authService as any).currentUserSubject.next(user);
       
       this.successMessage = 'Login successful! Redirecting to Employee Management...';
       this.isLoading = false;
       this.errorMessage = '';
       
-      // Navigate to employee list
+      
       setTimeout(() => {
         this.router.navigate(['/list']).catch(err => {
           console.error('Navigation error:', err);
@@ -104,7 +104,7 @@ export class Login {
     }
   }
 
-  // Test login with demo credentials
+  
   demoLoginHR(): void {
     this.loginModel.email = 'hr@company.com';
     this.loginModel.password = 'password123';

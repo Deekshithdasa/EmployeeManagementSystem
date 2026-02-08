@@ -6,7 +6,7 @@ export class LoginModel {
 export class LoginResponse {
   id?: number;
   email!: string;
-  role!: string; // 'HR' or 'ADMIN'
+  role!: string; 
   name?: string;
   token?: string;
 }
