@@ -91,3 +91,10 @@ mvn spring-boot:run<br>
 
 ### 🔍 Update Employee:
 <img width="1919" height="1018" alt="image" src="https://github.com/natnihc/Employee-Management-System/blob/main/screenshots/update_emp.jpeg" />
+
+### Docker:
+<img width="1919" height="1018" alt="image" src="https://github.com/natnihc/Employee-Management-System/blob/main/screenshots/docker_1.jpeg" /><br>
+<img width="1919" height="1018" alt="image" src="https://github.com/natnihc/Employee-Management-System/blob/main/screenshots/docker_2.jpeg" />
+
+### Azure:
+<img width="1919" height="1018" alt="image" src="https://github.com/natnihc/Employee-Management-System/blob/main/screenshots/azure.jpeg" />
