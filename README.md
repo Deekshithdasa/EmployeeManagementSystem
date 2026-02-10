@@ -98,3 +98,6 @@ mvn spring-boot:run<br>
 
 ### Azure:
 <img width="1919" height="1018" alt="image" src="https://github.com/natnihc/Employee-Management-System/blob/main/screenshots/azure.jpeg" />
+
+### Created Database and connected through Azure:
+<img width="1919" height="1018" alt="image" src="https://github.com/natnihc/Employee-Management-System/blob/main/screenshots/Database_Azure.jpeg" />
